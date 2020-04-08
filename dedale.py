@@ -74,7 +74,6 @@ def down():
 dir = []
 
 def algo(value):
-    down()
     if (map[posY][posX + 1] == 0):
         dir.append(1)
         right()
@@ -91,6 +90,25 @@ def algo(value):
         dir.append(4)
         up()
         return
+    if (dir[-1] == 1):
+        left()
+        dir.pop()
+        return
+    if (dir[-1] == 4):
+        down()
+        dir.pop()
+        return
+    if (dir[-1] == 3):
+        up()
+        dir.pop()
+        return
+    if (dir[-1] == 2):
+        right()
+        dir.pop()
+        return
+    if (map[posY][posX] == 2):
+        exit(0)
+
 
 
 
