@@ -25,10 +25,10 @@ def right():
     global posY
     if (map[posY][posX + 1] == 1):
         return
-    setACaseXY(posX, posY, 'grey')
+    setACaseXY(posX, posY, 'cyan')
     map[posY][posX] = -1
     posX += 1
-    setACaseXY(posX, posY, 'yellow')
+    setACaseXY(posX, posY, 'orange')
     if (map[posY][posX] == 2):
         exit(0)
 
@@ -37,7 +37,7 @@ def left():
     global posY
     if (map[posY][posX - 1] == 1):
         return
-    setACaseXY(posX, posY, 'grey')
+    setACaseXY(posX, posY, 'cyan')
     map[posY][posX] = -1
     posX -= 1
     setACaseXY(posX, posY, 'yellow')
@@ -49,11 +49,11 @@ def up():
     global posX
     if (map[posY - 1][posX] == 1):
         return
-    setACaseXY(posX, posY, 'grey')
+    setACaseXY(posX, posY, 'cyan')
     map[posY][posX] = -1
     posY -= 1
 
-    setACaseXY(posX, posY, 'yellow')
+    setACaseXY(posX, posY, 'green')
     if (map[posY][posX] == 2):
         exit(0)
 
@@ -62,10 +62,10 @@ def down():
     global posX
     if (map[posY + 1][posX] == 1):
         return
-    setACaseXY(posX, posY, 'grey')
+    setACaseXY(posX, posY, 'cyan')
     map[posY][posX] = -1
     posY += 1
-    setACaseXY(posX, posY, 'yellow')
+    setACaseXY(posX, posY, 'violet')
     if (map[posY][posX] == 2):
         exit(0)
 
@@ -74,19 +74,20 @@ def down():
 dir = []
 
 def algo(value):
-    if (map[posY][posX + 1] == 0):
+
+    if (map[posY][posX + 1] == 0 or map[posY][posX + 1]==2):
         dir.append(1)
         right()
         return
-    if (map[posY][posX - 1] == 0):
+    if (map[posY][posX - 1] == 0 or map[posY][posX - 1] == 2):
         dir.append(2)
         left()
         return
-    if (map[posY + 1][posX] == 0):
+    if (map[posY + 1][posX] == 0 or map[posY + 1][posX] == 2):
         dir.append(3)
         down()
         return
-    if (map[posY - 1][posX] == 0):
+    if (map[posY - 1][posX] == 0 or map[posY - 1][posX] == 2):
         dir.append(4)
         up()
         return
@@ -106,8 +107,7 @@ def algo(value):
         right()
         dir.pop()
         return
-    if (map[posY][posX] == 2):
-        exit(0)
+
 
 
 
